@@ -11,7 +11,7 @@ jobs:
       - name: run mutiline scripts
         run: |
           echo "hello github actions from windows"
-          Get-Date1
+          Get-Date
   build_on_linux:
     runs-on: ubuntu-latest
     steps:
