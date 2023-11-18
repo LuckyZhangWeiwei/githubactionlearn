@@ -5,8 +5,6 @@ on: workflow_dispatch
 jobs:
   build_on_windows:
     runs-on: windows-latest
-    if: ${{ success() }}
-    needs: [build_on_linux]
     steps:
       - name: run mutiline scripts
         run: |
@@ -14,6 +12,8 @@ jobs:
           Get-Date
   build_on_linux:
     runs-on: ubuntu-latest
+    if: ${{ success() }}
+    needs: [build_on_windows]
     steps:
       # Runs a single command using the runners shell
       - name: Run a one-line script
