@@ -1,13 +1,12 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
 on: workflow_dispatch
 
 jobs:
-  # This workflow contains a single job called "build"
   build_on_windows:
     runs-on: windows-latest
+    if: ${{ success() }}
+    needs: [build_on_linux]
     steps:
       - name: run mutiline scripts
         run: |
