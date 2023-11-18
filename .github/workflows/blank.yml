@@ -6,6 +6,13 @@ on: workflow_dispatch
 
 jobs:
   # This workflow contains a single job called "build"
+  build_on_windows:
+    runs-on: windows-latest
+    steps:
+      - name: run mutiline scripts
+        run: |
+          echo "hello github actions from windows"
+          Get-Date
   build_on_linux:
     runs-on: ubuntu-latest
     steps:
